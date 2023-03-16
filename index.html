@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css/main.css">
+    <title>Math Quiz Game</title>
+</head>
+<body>
+    <div id="backgroundblack"></div>
+    <canvas id="canvas" class="neon-border"></canvas>
+    <div id="message">
+        <img src="/images/2.png" alt="">
+
+
+    </div>
+
+    <img id="play-button" src="/images/play-button.png">
+    <nav>
+        <div class="nav-container">
+          <a href="/" class="logo">Math Quiz Game</a>
+          
+       
+        </div>
+      </nav>    
+  
+      <div id="game-info">
+        <p>Cow Count: <span id="cow-count">0</span></p>
+        <p>Lives: <span id="lives">❤️ ❤️ ❤️<i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i></span></p>
+      </div>
+  
+      <div class="container">
+  
+        <div class="background"></div>
+        <div class="background"></div>
+        <div id="game">
+          <div id="question-container">
+            <h2 id="question"></h2>
+            <input type="text" id="answer" autocomplete="off" autofocus onkeydown="if (event.keyCode == 13) checkAnswer()">
+            <button id="submit-button" onclick="checkAnswer()">Submit</button>
+          </div>
+          <div id="feedback-container">
+            <p id="feedback"></p>
+            <button id="next-button" onclick="nextQuestion()">Next Question</button>
+          </div>
+          <div id="feedback-container">
+             
+            <h2 id="feedback"></h2>
+          </div>
+          <div id="score-container">
+            <h2 id="score">Score: <span>0</span></h2>
+          </div>
+        </div>
+        <div id="story">
+         
+          </div>        
+        <p id="story-text"></p>
+        </div>
+      </div>
+      <script src="/script.js/index.js"></script>
+      <script src="script.js/main.js"></script>
+      
+      <script>
+  
+        const navSlide = () => {
+          const burger = document.querySelector('.burger');
+          const nav = document.querySelector('.nav-links');
+          const navLinks = document.querySelectorAll('.nav-links li');
+  
+          burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+  
+            navLinks.forEach((link, index) => {
+              if (link.style.animation) {
+                link.style.animation = '';
+              } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+              }
+            });
+          });
+        };
+  
+        navSlide();
+  
+        // Get the cow count and lives elements
+    var cowCountElement = document.getElementById('cow-count');
+    var livesElement = document.getElementById('lives');
+  
+    // Set the initial cow count and lives values
+    var cowCount = 0;
+    var lives = 3;
+  
+    // Update the cow count and lives information
+    function updateGameInfo() {
+      cowCountElement.textContent = cowCount;
+      livesElement.innerHTML = '';
+      for (var i = 0; i < lives; i++) {
+        livesElement.innerHTML += '<i class="fas fa-heart"></i>';
+      }
+    }
+  
+    // Call the updateGameInfo function to display the initial values
+    updateGameInfo();
+  
+    // Update the cow count when a cow is saved
+    cowCount++;
+    updateGameInfo();
+  
+    // Reduce a life when a wrong answer is submitted
+    lives--;
+    updateGameInfo();
+    
+      </script>
+  
+  
+    
+    <script src="/script.js/index.js"></script>
+</body>
+<footer>
+    <div class="footer-container">
+      <div class="footer-text">
+        <p> &copy; Moo Light  Gamma Technologies All Rights Reserved 2023 ~ Present</p>
+        
+      </div>
+      <div class="footer-image">
+        <img src="images/Gamma_Logo.png" alt="Moo Light logo">
+      </div>
+    </div>
+  </footer>
+  
+</html>
+
+
+  
