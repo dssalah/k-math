@@ -1,0 +1,537 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
+video {
+  position: relative;
+  top: 390px;
+  left: -95px;
+  object-fit: contain;
+  autoplay: true;
+  overflow: clip;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+body {
+  top: -390px;
+  left: 95px;
+  position: relative;
+  overflow: hidden;
+}
+
+#backgroundblack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/blackbackground.jpg");
+  background-size: cover;
+  z-index: -100;
+}
+
+
+canvas {
+  position: relative;
+  top: 485px;
+  left: 50px;
+  width: 80%;
+  height: 60%;
+  background-image: url("/images/night-farm.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -50;
+}
+
+.neon-border {
+  box-shadow: 0 0 20px #52017b, 0 0 40px #52017b, 0 0 60px #52017b, 0 0 80px #a6429d, 0 0 100px #a6429d, 0 0 150px #d2a4c8, 0 0 200px #ffffff, 0 0 300px #ffffff;
+  animation: neon-border 1s ease-in-out infinite alternate;
+}
+
+@keyframes neon-border {
+  from {
+    box-shadow: 0 0 10px #52017b, 0 0 20px #52017b, 0 0 30px #52017b, 0 0 40px #a6429d, 0 0 70px #a6429d, 0 0 80px #d2a4c8, 0 0 100px #ffffff, 0 0 150px #ffffff;
+  }
+  to {
+    box-shadow: 0 0 20px #52017b, 0 0 40px #52017b, 0 0 60px #52017b, 0 0 80px #a6429d, 0 0 100px #a6429d, 0 0 150px #d2a4c8, 0 0 200px #ffffff, 0 0 300px #ffffff;
+  }
+}
+
+
+
+#play-button {
+  position: absolute;
+  top: 56%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  background-image: url('/images/play-button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#message {
+  position: relative;
+  top: -50;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+#message img {
+ 
+  z-index: 5;
+  position: relative;
+  top: -110px;
+  left: 145px;
+  
+  
+}
+
+#message p {
+  position: relative;
+  z-index: 7;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  top: -610px;
+  left: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Game styles */
+
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+ 
+  margin-right: 50px;
+  z-index: 1;
+  color: black;
+}
+  
+#game-info p {
+  color: #ffffff;
+  font-size: 36px;
+  text-shadow: 2px 2px 0 #000;
+  top: -180px;
+  left: 53px;
+  position: relative;
+  font-weight: bolder;
+}
+
+
+#question-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#question {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-right: 130px;
+  padding: 20px;
+  border: 2px dashed #fede10;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #52017b, #ff00fb); /* add gradient background */
+}
+
+
+#answer {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 200px;
+  outline: none;
+}
+
+#answer:focus {
+  border-color: #8c7106;
+}
+
+
+
+#feedback-container {
+  display: none;
+  text-align: center;
+}
+
+#feedback {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#score-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#score {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* Story styles */
+
+#story {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 50px;
+  z-index: 0;
+  color:#52017b;
+}
+
+#ufo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+#cow {
+  width: 200px;
+  height: 200px;
+}
+
+#story-text {
+  position: relative;
+  top: -200px;
+  left: 0px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+
+
+.logo {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: 'Poppins', sans
+-serif;
+z-index: 999;
+}
+
+
+
+
+
+.logo {
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 5px;
+font-size: 20px;
+}
+
+.burger {
+display: none;
+}
+
+.nav-links {
+display: flex;
+justify-content: space-around;
+width: 50%;
+}
+
+.nav-links li {
+list-style: none;
+}
+
+.nav-links a {
+color: #fff;
+text-decoration: none;
+letter-spacing: 3px;
+font-weight: bold;
+font-size: 14px;
+}
+
+.nav-active {
+transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+from {
+opacity: 0;
+transform: translateX(50px);
+}
+to {
+opacity: 1;
+transform: translateX(0px);
+}
+}
+
+.toggle .line1 {
+transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+opacity: 0;
+}
+
+.toggle .line3 {
+transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr;
+height: 100vh;
+}
+
+
+
+#question-container {
+margin-bottom: 20px;
+text-align: center;
+}
+
+#question {
+font-size: 48px;
+font-weight: bold;
+margin-bottom: 20px;
+color: black 
+}
+
+#answer {
+font-size: 36px;
+font-weight: bold;
+text-align: center;
+background-color: transparent;
+border: none;
+border-bottom: 2px solid #fff;
+color: rgb(0, 0, 0);
+padding: 10px;
+margin-bottom: 20px;
+width: 200px;
+outline: none;
+}
+
+#answer:focus {
+border-color: #f1c40f;
+}
+.footer-image img{
+position: relative;
+top: -10px;
+left: -140px;
+
+}
+#submit-button {
+  background: linear-gradient(to bottom, #52017b, #ff00fb); /* add gradient background */
+color: #111;
+font-size: 24px;
+font-weight: bold;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+#submit-button:hover {
+background-color: #f1c40f;
+}
+
+#feedback-container {
+display: none;
+text-align: center;
+}
+
+#feedback {
+font-size: 36px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+#score-container {
+margin-top: 20px;
+text-align: center;
+}
+
+#score {
+  position: relative;
+font-size: 48px;
+font-weight: bold;
+color: white;
+top: 80px;
+left: 700px;
+}
+
+/* Story styles */
+
+#story {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-left: 50px;
+z-index: 0;
+color: red;
+}
+
+
+.beam {
+  animation: beam 1s infinite;
+  background-image: url('beam.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes beam {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+
+
+/* ---- reset ---- */
+.github {
+  z-index: 10000;
+  bottom: 10px;
+  right: 10px;
+  position: fixed;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0 12px 6px 12px;
+  border: 1px solid #000;
+}
+
+.github a:hover,
+.github a:link,
+.github a:visited,
+.github a:active {
+  color: #000;
+  text-decoration: none;
+}
+
+.github img {
+  height: 30px;
+}
+
+.github #gh-project {
+  font-size: 20px;
+  padding-left: 5px;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+
+footer {
+  position: relative;
+  top: -508px;
+  left: 10px;
+  color: wheat;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  text-align: center;
+}
+
+.footer-text p {
+  margin: 0;
+}
+
+.footer-image img {
+  position: relative;
+  top: -590px;
+  left: -45;
+  max-width: 80px;
+}
