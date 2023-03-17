@@ -5,6 +5,18 @@
     
     
   }
+
+  video {
+    position: relative;
+    top: 390px;
+    left: -95px;
+    object-fit: contain;
+    autoplay: true;
+    overflow: clip;
+    width: 100vw;
+    height: 100vh;
+ 
+  }
   
   body {
     top: -390px;
